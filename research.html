@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Research | Michaël Nicolaï</title>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="style.css">
+
+ <style>
+
+  /* =========================
+     Research page
+     ========================= */
+
+  .research-intro {
+    max-width: 900px;
+    margin: 0 auto 5rem;
+  }
+
+  .research-intro p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+  }
+
+  .research-intro .intro {
+    font-size: 1.35rem;
+    line-height: 1.65;
+    font-weight: 300;
+  }
+
+
+  /* =========================
+     Research banner title
+     ========================= */
+
+  .page-banner {
+    overflow: visible;
+    margin-bottom: 25px;
+  }
+
+  .page-banner .banner-content {
+    position: absolute;
+    inset: auto 0 0 0;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+    padding: 0;
+    text-align: center;
+
+    transform: translateY(50%);
+    pointer-events: none;
+  }
+
+  .page-banner .banner-title {
+    margin: 0;
+
+    min-width: 340px;
+    padding: 25px 50px;
+
+    background: #ffffff;
+    color: #3f4248;
+
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.2;
+
+    letter-spacing: 4px;
+    text-transform: uppercase;
+
+    text-shadow: none;
+    box-shadow: none;
+    border: none;
+  }
+
+
+  /* Reduce space between banner and intro */
+
+  main.container {
+    padding-top: 1.5rem;
+  }
+
+
+  /* =========================
+     Research sections
+     ========================= */
+
+  .research-section {
+    margin: 5rem 0;
+  }
+
+  .section-title {
+    margin-bottom: 2rem;
+  }
+
+
+  /* =========================
+     Current research grid
+     ========================= */
+
+  .research-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+
+  .research-card {
+    position: relative;
+
+    min-height: 250px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    padding: 2rem;
+
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 14px;
+
+    cursor: pointer;
+
+    transition:
+      transform 0.25s ease,
+      border-color 0.25s ease,
+      box-shadow 0.25s ease;
+  }
+
+  .research-card:hover {
+    transform: translateY(-5px);
+
+    border-color: rgba(0, 0, 0, 0.3);
+
+    box-shadow:
+      0 12px 30px rgba(0, 0, 0, 0.07);
+  }
+
+  .research-card-label {
+    margin-bottom: 1rem;
+
+    font-size: 0.78rem;
+    font-weight: 600;
+
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+
+    opacity: 0.5;
+  }
+
+  .research-card h3 {
+    margin: 0 0 1rem;
+
+    font-size: 1.35rem;
+    line-height: 1.35;
+    font-weight: 500;
+  }
+
+  .research-card p {
+    margin: 0;
+
+    line-height: 1.65;
+
+    opacity: 0.75;
+  }
+
+  .research-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-top: 2rem;
+
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  .research-card-arrow {
+    font-size: 1.15rem;
+
+    transition: transform 0.2s ease;
+  }
+
+  .research-card:hover .research-card-arrow {
+    transform: translate(4px, -2px);
+  }
+
+
+  /* =========================
+     Expanded research sections
+     ========================= */
+
+  .research-details {
+    display: none;
+
+    margin-top: 2rem;
+    padding: 2.5rem 0;
+
+    border-top: 1px solid rgba(0, 0, 0, 0.12);
+  }
+
+  .research-details.active {
+    display: block;
+  }
+
+  .research-details-inner {
+    max-width: 900px;
+  }
+
+  .research-details h3 {
+    margin: 0 0 1rem;
+
+    font-size: 1.7rem;
+    font-weight: 500;
+  }
+
+  .research-details p {
+    margin-bottom: 1.2rem;
+
+    line-height: 1.8;
+  }
+
+  .research-details .project-meta {
+    margin-bottom: 1.5rem;
+
+    font-size: 0.9rem;
+    font-weight: 500;
+
+    opacity: 0.55;
+  }
+
+  .close-details {
+    margin-top: 1.5rem;
+
+    padding: 0;
+
+    border: 0;
+    background: none;
+
+    font: inherit;
+    font-weight: 500;
+
+    cursor: pointer;
+
+    opacity: 0.65;
+  }
+
+  .close-details:hover {
+    opacity: 1;
+  }
+
+
+  /* =========================
+     Publications
+     ========================= */
+
+  .related-publications {
+    margin-top: 2.5rem;
+  }
+
+  .related-publications h4 {
+    margin-bottom: 1rem;
+
+    font-size: 1rem;
+    font-weight: 600;
+  }
+
+  .publication-list {
+    margin-top: 1rem;
+  }
+
+  .publication-item {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: flex-start;
+
+    gap: 1.5rem;
+
+    padding: 1.25rem 0;
+
+    border-bottom:
+      1px solid rgba(0, 0, 0, 0.1);
+
+    color: inherit;
+    text-decoration: none;
+
+    line-height: 1.65;
+
+    transition:
+      padding-left 0.2s ease,
+      color 0.2s ease;
+  }
+
+  .publication-item:first-child {
+    border-top:
+      1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .publication-item:hover {
+    padding-left: 0.5rem;
+
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  .publication-text {
+    flex: 1;
+  }
+
+  .publication-arrow {
+    flex-shrink: 0;
+
+    opacity: 0.3;
+
+    transition:
+      opacity 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  .publication-item:hover .publication-arrow {
+    opacity: 1;
+
+    transform: translate(3px, -2px);
+  }
+
+  .publication-note {
+    display: block;
+
+    margin-top: 0.3rem;
+
+    font-size: 0.82rem;
+
+    opacity: 0.55;
+  }
+
+
+  /* =========================
+     Selected highlights
+     ========================= */
+
+  .selected-work {
+    max-width: 900px;
+  }
+
+
+  /* =========================
+     Tablet
+     ========================= */
+
+  @media (max-width: 900px) {
+
+    .research-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .research-card {
+      min-height: 0;
+    }
+
+  }
+
+
+  /* =========================
+     Mobile
+     ========================= */
+
+  @media (max-width: 700px) {
+
+    .research-intro {
+      margin-bottom: 3.5rem;
+    }
+
+    .research-intro .intro {
+      font-size: 1.15rem;
+    }
+
+    .research-section {
+      margin: 3.5rem 0;
+    }
+
+    .research-card {
+      padding: 1.5rem;
+    }
+
+    .research-details {
+      padding: 2rem 0;
+    }
+
+  }
+
+
+  @media (max-width: 600px) {
+
+    .page-banner {
+      margin-bottom: 20px;
+    }
+
+    .page-banner .banner-title {
+      min-width: 0;
+
+      width: calc(100% - 60px);
+
+      padding: 20px 25px;
+
+      font-size: 15px;
+      letter-spacing: 3.5px;
+    }
+
+    main.container {
+      padding-top: 1.25rem;
+    }
+
+  }
+
+
+  @media (max-width: 400px) {
+
+    .page-banner .banner-title {
+      width: calc(100% - 40px);
+
+      padding: 18px 20px;
+
+      font-size: 14px;
+      letter-spacing: 3px;
+    }
+
+  }
+
+
+  /* =========================================================
+     TYPOGRAPHY & BLUE ACCENT
+     Matches the light, elegant homepage typography
+     ========================================================= */
+
+  :root {
+    --site-blue: #12324a;
+  }
+
+  .page-banner .banner-title {
+    color: var(--site-blue);
+    font-weight: 400;
+  }
+
+  .research-intro .intro {
+    color: var(--site-blue);
+    font-weight: 300;
+  }
+
+  .section-title,
+  .research-card h3,
+  .research-details h3,
+  .related-publications h4 {
+    color: var(--site-blue);
+  }
+
+  .section-title {
+    font-weight: 300;
+    letter-spacing: 0.02em;
+  }
+
+  .research-card h3,
+  .research-details h3 {
+    font-weight: 400;
+  }
+
+  .research-card-label,
+  .research-card-footer,
+  .project-meta {
+    color: var(--site-blue);
+  }
+
+</style>
+  <link rel="stylesheet" href="theme.css">
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="header-space" aria-hidden="true"></div>
+  <nav class="nav" aria-label="Main navigation">
+    <a href="index.html">Home</a>
+    <a href="research.html" class="active">Research</a>
+    <a href="outreach.html">Outreach</a>
+    <a href="publications.html">Publications</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+
+<section class="page-banner" aria-labelledby="page-title">
+  <img src="Picture2.jpg" alt="Research">
+
+  <div class="banner-overlay" aria-hidden="true"></div>
+
+  <div class="banner-content">
+    <h1 class="banner-title" id="page-title">Research</h1>
+  </div>
+</section>
+
+
+<main class="container">
+
+  <!-- GENERAL RESEARCH -->
+
+  <section class="research-intro">
+
+    <p class="intro">
+      I’m an evolutionary biologist who never lost his curiosity.
+      I like to look around in the field, but mostly in natural history
+      collections, and wonder “why?”. My research reflects this curiosity
+      and is focused on how and why phenotypes evolve.
+    </p>
+
+    <p>
+      I do this using a variety of techniques including phylogenetic
+      comparative analyses, wind tunnel testing, phenotype characterization,
+      and others. My work broadly explores how colour, structure, function,
+      ecology and evolutionary history interact to generate phenotypic
+      diversity.
+    </p>
+
+  </section>
+
+
+  <!-- CURRENT RESEARCH -->
+
+  <section class="research-section">
+
+    <h2 class="section-title">Current research</h2>
+
+    <div class="research-grid">
+
+      <article
+        class="research-card"
+        tabindex="0"
+        role="button"
+        data-target="genesis"
+        aria-expanded="false"
+      >
+
+        <div>
+          <div class="research-card-label">Iridescent colours</div>
+
+          <h3>
+            GENESIS
+          </h3>
+
+          <p>
+            Exploring the genomics, structure and evolution of iridescent
+            colours in animals.
+          </p>
+        </div>
+
+        <div class="research-card-footer">
+          <span>Discover more</span>
+          <span class="research-card-arrow">↗</span>
+        </div>
+
+      </article>
+
+
+      <article
+        class="research-card"
+        tabindex="0"
+        role="button"
+        data-target="biogeography"
+        aria-expanded="false"
+      >
+
+        <div>
+          <div class="research-card-label">Evolution &amp; biogeography</div>
+
+          <h3>
+            Trait-based biogeography
+          </h3>
+
+          <p>
+            Investigating how phenotypic traits shape dispersal,
+            geographic range and diversification.
+          </p>
+        </div>
+
+        <div class="research-card-footer">
+          <span>Discover more</span>
+          <span class="research-card-arrow">↗</span>
+        </div>
+
+      </article>
+
+
+      <article
+        class="research-card"
+        tabindex="0"
+        role="button"
+        data-target="future-colour"
+        aria-expanded="false"
+      >
+
+        <div>
+          <div class="research-card-label">Reviews &amp; perspectives</div>
+
+          <h3>
+            The future of colour science
+          </h3>
+
+          <p>
+            Developing conceptual frameworks and identifying new directions
+            for research on animal colour and phenotype evolution.
+          </p>
+        </div>
+
+        <div class="research-card-footer">
+          <span>Discover more</span>
+          <span class="research-card-arrow">↗</span>
+        </div>
+
+      </article>
+
+    </div>
+
+
+    <!-- GENESIS DETAILS -->
+
+    <div
+      class="research-details"
+      id="genesis"
+    >
+      <div class="research-details-inner">
+
+        <h3>
+          GENESIS — The GENomics and Evolution of Structural Iridescent Signals
+        </h3>
+
+        <div class="project-meta">
+          FWO funded
+        </div>
+
+        <p>
+          Iridescent colours are responsible for some of the most brilliant
+          and diverse colours in the animal kingdom. Paradoxically,
+          iridescence remains one of the least understood mechanisms
+          responsible for bird colouration.
+        </p>
+
+        <p>
+          Unlike pigment-based colouration, where colour is produced by
+          absorption of light, iridescent colouration is created by the
+          scattering of light by photonic structures. Pigment organelles
+          called melanosomes form important building blocks of these
+          structures.
+        </p>
+
+        <p>
+          The goal of GENESIS is to link genotype, phenotype and the evolution
+          of iridescent colours. The project is now finishing, so watch out
+          for more shiny publications soon.
+        </p>
+
+
+        <div class="related-publications">
+
+          <h4>Related publications</h4>
+
+          <div class="publication-list">
+
+            <a class="publication-item" href="https://academic.oup.com/pnasnexus/article/3/4/pgae138/7639422" target="_blank" rel="noopener noreferrer">
+              <span class="publication-text">
+                <strong>Nicolaï, M.P.J.</strong>*,
+                Debruyn, G.*, Soenens, M., Shawkey, M.D., D’Alba, L. (2024).
+                Nanoscale millefeuilles produce iridescent bill ornaments in birds.
+                <em>PNAS Nexus</em>, 3(4), 138.
+
+                <span class="publication-note">
+                  * Shared first author.
+                </span>
+              </span>
+
+              <span class="publication-arrow">↗</span>
+            </a>
+
+
+            <a class="publication-item" href="https://www.nature.com/articles/s41559-024-02487-5" target="_blank" rel="noopener noreferrer">
+              <span class="publication-text">
+                Eliason, C., <strong>Nicolaï, M.P.J.</strong>,
+                Bom, C.#, Blom, E., D’Alba, L., Shawkey, M.D. (2024).
+                Transitions between colour mechanisms affect speciation
+                dynamics and range distributions of birds.
+                <em>Nature Ecology &amp; Evolution</em>, 8, 1723–1734.
+
+                <span class="publication-note">
+                  # Supervised master student.
+                </span>
+              </span>
+
+              <span class="publication-arrow">↗</span>
+            </a>
+
+
+            <a class="publication-item" href="https://resjournals.onlinelibrary.wiley.com/doi/full/10.1111/phen.12469" target="_blank" rel="noopener noreferrer">
+              <span class="publication-text">
+                Debruyn, G., Büscher, T.,
+                <strong>Nicolaï, M.P.J.</strong>,
+                Dobson, J.L., Xie, W., De Clerck, K.,
+                D’Alba, L., Shawkey, M.D. (2024).
+                Thin-film iridescence in the eggshell of a stick insect
+                (<em>Myronides glaucus</em>).
+                <em>Physiological Entomology</em>, 1–8.
+              </span>
+
+              <span class="publication-arrow">↗</span>
+            </a>
+
+
+            <a class="publication-item" href="https://royalsocietypublishing.org/rsif/article/22/230/20250508/235562/Multilayer-thin-film-produces-recurrent-evolution" target="_blank" rel="noopener noreferrer">
+              <span class="publication-text">
+                Dobson, J.L., Babarović, F.,
+                <strong>Nicolaï, M.P.J.</strong>,
+                Debruyn, G., Shawkey, M.D., D’Alba, L. (2025).
+                Multilayer thin-film produces recurrent evolution of
+                iridescence in mammals.
+                <em>Journal of the Royal Society Interface</em>,
+                22, 20250508.
+              </span>
+
+              <span class="publication-arrow">↗</span>
+            </a>
+
+
+            <a class="publication-item" href="https://www.biorxiv.org/content/10.64898/2026.01.26.701322v3.abstract" target="_blank" rel="noopener noreferrer">
+              <span class="publication-text">
+                Barbosa, S., Bittner, C., Arbore, R., Araújo, P.,
+                Pereira, P., Andrade, P., Fekete, C., Afonso, R.,
+                Afonso, S., Amorim, M.F., Marques, C.I.,
+                <strong>Nicolaï, M.P.J.</strong>, et al. (2026).
+                Modulation of avian iridescence via melanogenesis.
+                <em>Proceedings of the National Academy of Sciences</em>.
+
+                <span class="publication-note">
+                  Accepted.
+                </span>
+              </span>
+
+              <span class="publication-arrow">↗</span>
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <button class="close-details" type="button">
+          Close ↑
+        </button>
+
+      </div>
+    </div>
+
+
+    <!-- BIOGEOGRAPHY DETAILS -->
+
+    <div
+      class="research-details"
+      id="biogeography"
+    >
+      <div class="research-details-inner">
+
+        <h3>Trait-based biogeography</h3>
+
+        <p>
+          You know those songs that get stuck in your head?
+          Biogeography is one of those for me. Reflecting my early ventures
+          into science, I have a weak spot for biogeography and the models
+          they use.
+        </p>
+
+        <p>
+          Colour space? Looks like it has continents and islands to be
+          populated by species. The evolution of traits? Might as well
+          influence dispersal. While this is not my main research field,
+          I am able to continue working on it through great collaborators.
+        </p>
+
+
+        <div class="related-publications">
+
+          <h4>Related publications</h4>
+
+          <div class="publication-list">
+
+            <a class="publication-item" href="#" target="_blank" rel="noopener noreferrer">
+              <span class="publication-text">
+                <strong>Nicolaï, M.P.J.</strong> and Matzke, N.J. (2019).
+                Trait-based range expansion aided in the global radiation
+                of Crocodylidae.
+                <em>Global Ecology and Biogeography</em>,
+                28, 1244–1258.
+              </span>
+
+              <span class="publication-arrow">↗</span>
+            </a>
+
+
+            <a class="publication-item" href="https://onlinelibrary.wiley.com/doi/full/10.1111/geb.12929" target="_blank" rel="noopener noreferrer">
+              <span class="publication-text">
+                Weil, S.-S., Gallien, L., Lavergne, S., Börger, L.,
+                Hassler, G., <strong>Nicolaï, M.P.J.</strong>,
+                Allen, W. (2022).
+                The role of chameleons’ traits in biogeographic
+                long-distance dispersal.
+                <em>Ecography</em>, e06323.
+              </span>
+
+              <span class="publication-arrow">↗</span>
+            </a>
+
+
+            <a class="publication-item" href="https://onlinelibrary.wiley.com/doi/full/10.1111/ddi.13616" target="_blank" rel="noopener noreferrer">
+              <span class="publication-text">
+                Yousefi, M., Kafash, A.,
+                <strong>Nicolaï, M.P.J.</strong> (2022).
+                Reptile richness and genetic diversity patterns were shaped
+                by current and past climate in and around the Irano-Anatolian
+                global biodiversity hotspot.
+                <em>Diversity and Distributions</em>,
+                28(12), 2637–2647.
+              </span>
+
+              <span class="publication-arrow">↗</span>
+            </a>
+
+
+            <a class="publication-item" href="https://www.nature.com/articles/s41559-023-02150-5" target="_blank" rel="noopener noreferrer">
+              <span class="publication-text">
+                Weil, S.-S., Gallien, L.,
+                <strong>Nicolaï, M.P.J.</strong>,
+                Lavergne, S., Börger, L., Allen, W. (2023).
+                Uncovering how traits have shaped the historical
+                biogeography of tetrapods.
+                <em>Nature Ecology &amp; Evolution</em>,
+                7, 1467–1479.
+              </span>
+
+              <span class="publication-arrow">↗</span>
+            </a>
+
+
+            <a class="publication-item" href="https://academic.oup.com/sysbio/article/73/2/343/7593426" target="_blank" rel="noopener noreferrer">
+              <span class="publication-text">
+                <strong>Nicolaï, M.P.J.</strong>,
+                Van Hecke, B.#, Rogalla, S., Debruyn, G., Bowie, R.,
+                Matzke, N.J., Hackett, S., D’Alba, L., Shawkey, M. (2024).
+                The evolution of multiple colour mechanisms is correlated
+                with diversification in sunbirds (Nectariniidae).
+                <em>Systematic Biology</em>, syae006.
+
+                <span class="publication-note">
+                  # Supervised master student.
+                </span>
+              </span>
+
+              <span class="publication-arrow">↗</span>
+            </a>
+
+
+            <a class="publication-item" href="https://www.nature.com/articles/s41559-024-02487-5" target="_blank" rel="noopener noreferrer">
+              <span class="publication-text">
+                Eliason, C., <strong>Nicolaï, M.P.J.</strong>,
+                Bom, C.#, Blom, E., D’Alba, L., Shawkey, M.D. (2024).
+                Transitions between colour mechanisms affect speciation
+                dynamics and range distributions of birds.
+                <em>Nature Ecology &amp; Evolution</em>,
+                8, 1723–1734.
+
+                <span class="publication-note">
+                  # Supervised master student.
+                </span>
+              </span>
+
+              <span class="publication-arrow">↗</span>
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <button class="close-details" type="button">
+          Close ↑
+        </button>
+
+      </div>
+    </div>
+
+
+    <!-- FUTURE COLOUR SCIENCE DETAILS -->
+
+    <div
+      class="research-details"
+      id="future-colour"
+    >
+      <div class="research-details-inner">
+
+        <h3>Thinking about the future of colour science</h3>
+
+        <p>
+          Science is inherently dynamic, building on previous work.
+          Apart from my main research, I also like to
+          conceptualize the future of our research
+          field.
+        </p>
+
+        <p>
+          I do this through reviews and perspectives identifying what
+          has been done and, more importantly, what should be done in
+          the future.
+        </p>
+
+
+        <div class="related-publications">
+
+          <h4>Related publications</h4>
+
+          <div class="publication-list">
+
+            <a class="publication-item" href="https://www.pnas.org/doi/abs/10.1073/pnas.2318189121" target="_blank" rel="noopener noreferrer">
+              <span class="publication-text">
+                <strong>Nicolaï, M.P.J.</strong>,
+                Bok, M.J., Alvarez, J.A., D’Alba, L., Shawkey, M.D. (2024).
+                The function and consequences of fluorescence in tetrapods.
+                <em>PNAS</em>, 121(24), e2318189121.
+              </span>
+
+              <span class="publication-arrow">↗</span>
+            </a>
+
+
+            <a class="publication-item" href="https://www.nature.com/articles/d41586-022-04473-y">
+              <span class="publication-text">
+                <strong>Nicolaï, M.P.J.</strong> (2022).
+                Boost funds to make museum specimens available to all.
+                <em>Nature</em>, 612(7941), 631.
+
+                <span class="publication-note">
+                  Non-peer-reviewed.
+                </span>
+              </span>
+
+              <span class="publication-arrow">↗</span>
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <button class="close-details" type="button">
+          Close ↑
+        </button>
+
+      </div>
+    </div>
+
+  </section>
+
+
+ <!-- SELECTED HIGHLIGHTS -->
+
+<section class="research-section selected-work">
+
+  <h2 class="section-title">Selected highlights</h2>
+
+  <div class="publication-list">
+
+    <!-- ARTICLE 1 -->
+    <a
+      class="publication-item"
+      href="https://www.nature.com/articles/s41467-020-15894-6"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <span class="publication-text">
+        <strong>Nicolaï, M.P.J.</strong>,
+        Shawkey, M.D., Porchetta, S., Claus, R., D’Alba, L. (2020).
+        Exposure to UV radiance predicts repeated evolution of
+        concealed black skin in birds.
+        <em>Nature Communications</em>, 11, 2414.
+      </span>
+
+      <span class="publication-arrow" aria-hidden="true">↗</span>
+    </a>
+
+
+    <!-- ARTICLE 2 -->
+    <a
+      class="publication-item"
+      href="https://royalsocietypublishing.org/rsif/article/18/180/20210236/89953/The-evolution-of-darker-wings-in-seabirds-in"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <span class="publication-text">
+        <strong>Nicolaï, M.P.J.</strong>*,
+        Rogalla, S.*, Porchetta, S.*, Glabeke, G., Battistella, C.,
+        D’Alba, L., Gianneschi, N., van Beeck, J., Shawkey, M.D. (2021).
+        Temperature dependent flight efficiency drives the evolution
+        of darker wings in seabirds.
+        <em>Journal of the Royal Society Interface</em>,
+        18, 20210236.
+
+        <span class="publication-note">
+          * Equal contribution. <em>Featured in Science.</em>
+        </span>
+      </span>
+
+      <span class="publication-arrow" aria-hidden="true">↗</span>
+    </a>
+
+
+    <!-- ARTICLE 3 -->
+    <a
+      class="publication-item"
+      href="https://www.nature.com/articles/s41586-022-04622-3"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <span class="publication-text">
+        Cincotta, A., <strong>Nicolaï, M.P.J.</strong>,
+        D’Alba, L., Shawkey, M.D., McNamara, M.M., Carleer, R.,
+        Yans, J., Lescuillé, F., Godefroit, P. (2022).
+        Melanosomes in simple and branched pterosaur feathers support
+        signalling functions for early feathers.
+        <em>Nature</em>, 604, 684–688.
+
+        <span class="publication-note">
+          <em>Featured in Science.</em>
+        </span>
+      </span>
+
+      <span class="publication-arrow" aria-hidden="true">↗</span>
+    </a>
+
+  </div>
+
+</section>
+
+</main>
+
+
+<script>
+  const cards = document.querySelectorAll(".research-card");
+  const details = document.querySelectorAll(".research-details");
+  const closeButtons = document.querySelectorAll(".close-details");
+  const selectedHighlights = document.querySelector(".selected-work");
+
+
+  function openResearch(targetId) {
+
+    /* Close any previously opened section */
+    details.forEach(detail => {
+      detail.classList.remove("active");
+    });
+
+    /* Reset all cards */
+    cards.forEach(card => {
+      card.setAttribute("aria-expanded", "false");
+    });
+
+
+    const target = document.getElementById(targetId);
+
+    const activeCard = document.querySelector(
+      `.research-card[data-target="${targetId}"]`
+    );
+
+
+    if (target) {
+
+      /* Open the selected research section */
+      target.classList.add("active");
+
+
+      /* Hide Selected highlights */
+      if (selectedHighlights) {
+        selectedHighlights.style.display = "none";
+      }
+
+
+      /* Mark the selected card as expanded */
+      if (activeCard) {
+        activeCard.setAttribute("aria-expanded", "true");
+      }
+
+
+      /* Scroll to the opened research section */
+      setTimeout(() => {
+
+        target.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+
+      }, 50);
+    }
+  }
+
+
+  /* Open research cards */
+  cards.forEach(card => {
+
+    card.addEventListener("click", () => {
+      openResearch(card.dataset.target);
+    });
+
+
+    /* Keyboard accessibility */
+    card.addEventListener("keydown", event => {
+
+      if (event.key === "Enter" || event.key === " ") {
+
+        event.preventDefault();
+
+        openResearch(card.dataset.target);
+      }
+
+    });
+
+  });
+
+
+  /* Close research details */
+  closeButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+      const detail = button.closest(".research-details");
+
+
+      /* Close the expanded section */
+      if (detail) {
+        detail.classList.remove("active");
+      }
+
+
+      /* Reset all cards */
+      cards.forEach(card => {
+        card.setAttribute("aria-expanded", "false");
+      });
+
+
+      /* Show Selected highlights again */
+      if (selectedHighlights) {
+        selectedHighlights.style.display = "";
+      }
+
+
+      /* Scroll back to Current research */
+      document.querySelector(".research-grid").scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+
+    });
+
+  });
+</script>
+</body>
+</html>

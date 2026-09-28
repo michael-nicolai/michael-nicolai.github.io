@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Contact | Michaël Nicolaï</title>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+
+  <style>
+
+    /* =========================================================
+       CONTACT PAGE
+       ========================================================= */
+
+    .contact-container {
+      max-width: 1050px;
+      padding-top: 1.5rem;
+      padding-bottom: 7rem;
+    }
+
+
+    /* =========================================================
+       CONTACT BANNER
+       ========================================================= */
+
+    .page-banner {
+      overflow: visible;
+      margin-bottom: 25px;
+    }
+
+    .page-banner .banner-content {
+      position: absolute;
+      inset: auto 0 0 0;
+
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+
+      padding: 0;
+
+      text-align: center;
+
+      transform: translateY(50%);
+
+      pointer-events: none;
+    }
+
+    .page-banner .banner-title {
+      margin: 0;
+
+      min-width: 340px;
+      padding: 25px 50px;
+
+      background: #ffffff;
+      color: #3f4248;
+
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 1.2;
+
+      letter-spacing: 4px;
+      text-transform: uppercase;
+
+      text-shadow: none;
+      box-shadow: none;
+      border: none;
+    }
+
+
+    /* =========================================================
+       CONTACT CARD
+       ========================================================= */
+
+    .contact-card {
+      display: grid;
+
+      grid-template-columns: 280px minmax(0, 1fr);
+
+      gap: 3.5rem;
+
+      align-items: start;
+
+      max-width: 900px;
+
+      margin: 0 auto;
+    }
+
+
+    /* =========================================================
+       PROFILE IMAGE
+       ========================================================= */
+
+    .profile-image {
+      display: block;
+
+      width: 100%;
+      height: auto;
+
+      object-fit: cover;
+
+      border-radius: 12px;
+    }
+
+
+    /* =========================================================
+       CONTACT INFORMATION
+       ========================================================= */
+
+    .contact-info h2 {
+      margin: 0 0 0.4rem;
+
+      font-size: 1.7rem;
+      font-weight: 500;
+    }
+
+    .role {
+      margin-bottom: 2rem;
+
+      font-size: 1rem;
+      font-weight: 400;
+
+      opacity: 0.6;
+    }
+
+    .contact-details {
+      margin: 0;
+
+      font-size: 1rem;
+      line-height: 1.75;
+    }
+
+
+    /* =========================================================
+       GET IN TOUCH
+       ========================================================= */
+
+    .contact-message {
+      margin-top: 3rem;
+      padding-top: 2rem;
+
+      border-top: 1px solid rgba(0, 0, 0, 0.12);
+    }
+
+    .contact-message h3 {
+      margin: 0 0 1rem;
+
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
+
+    .contact-message p {
+      margin: 0 0 1.2rem;
+
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+
+    /* =========================================================
+       TABLET
+       ========================================================= */
+
+    @media (max-width: 800px) {
+
+      .contact-card {
+        grid-template-columns: 220px minmax(0, 1fr);
+        gap: 2.5rem;
+      }
+
+    }
+
+
+    /* =========================================================
+       MOBILE
+       ========================================================= */
+
+    @media (max-width: 600px) {
+
+      .page-banner {
+        margin-bottom: 20px;
+      }
+
+      .page-banner .banner-title {
+        min-width: 0;
+
+        width: calc(100% - 60px);
+
+        padding: 20px 25px;
+
+        font-size: 15px;
+        letter-spacing: 3.5px;
+      }
+
+      .contact-container {
+        padding-top: 1.25rem;
+        padding-bottom: 5rem;
+      }
+
+      .contact-card {
+        display: block;
+      }
+
+      .profile-image {
+        width: 200px;
+
+        margin-bottom: 2rem;
+      }
+
+      .contact-message {
+        margin-top: 2.5rem;
+      }
+
+    }
+
+
+    /* =========================================================
+       VERY SMALL SCREENS
+       ========================================================= */
+
+    @media (max-width: 400px) {
+
+      .page-banner .banner-title {
+        width: calc(100% - 40px);
+
+        padding: 18px 20px;
+
+        font-size: 14px;
+        letter-spacing: 3px;
+      }
+
+    }
+
+  
+  /* =========================================================
+     TYPOGRAPHY & BLUE ACCENT
+     Matches the light, elegant homepage typography
+     ========================================================= */
+
+  :root {
+    --site-blue: #12324a;
+  }
+
+  .page-banner .banner-title {
+    color: var(--site-blue);
+    font-weight: 400;
+  }
+
+  .contact-info h2,
+  .contact-message h3 {
+    color: var(--site-blue);
+  }
+
+  .contact-info h2 {
+    font-weight: 300;
+    letter-spacing: 0.02em;
+  }
+
+  .role {
+    color: var(--site-blue);
+    font-weight: 300;
+    opacity: 0.8;
+  }
+
+  .contact-message h3 {
+    font-weight: 400;
+  }
+
+</style>
+
+  <link rel="stylesheet" href="theme.css">
+</head>
+
+
+<body>
+
+
+  <!-- =======================================================
+       HEADER
+       ======================================================= -->
+
+  <header class="site-header">
+
+    <div
+      class="header-space"
+      aria-hidden="true"
+    ></div>
+
+    <nav
+      class="nav"
+      aria-label="Main navigation"
+    >
+
+      <a href="index.html">
+        Home
+      </a>
+
+      <a href="research.html">
+        Research
+      </a>
+
+      <a href="outreach.html">
+        Outreach
+      </a>
+
+      <a href="publications.html">
+        Publications
+      </a>
+
+      <a
+        href="contact.html"
+        class="active"
+      >
+        Contact
+      </a>
+
+    </nav>
+
+  </header>
+
+
+  <!-- =======================================================
+       BANNER
+       ======================================================= -->
+
+  <section
+    class="page-banner"
+    aria-labelledby="page-title"
+  >
+
+    <img
+      src="Picture2.jpg"
+      alt="Contact"
+    >
+
+    <div
+      class="banner-overlay"
+      aria-hidden="true"
+    ></div>
+
+    <div class="banner-content">
+
+      <h1
+        class="banner-title"
+        id="page-title"
+      >
+        Contact
+      </h1>
+
+    </div>
+
+  </section>
+
+
+  <!-- =======================================================
+       MAIN CONTENT
+       ======================================================= -->
+
+  <main class="container contact-container">
+
+
+    <section
+      class="contact-card"
+      aria-label="Contact information"
+    >
+
+
+      <!-- PROFILE IMAGE -->
+
+      <img
+        src="Michael.jpeg"
+        alt="Michaël Nicolaï"
+        class="profile-image"
+      >
+
+
+      <!-- CONTACT INFORMATION -->
+
+      <div class="contact-info">
+
+        <h2>
+          Michaël Nicolaï
+        </h2>
+
+        <div class="role">
+          Evolutionary biologist
+        </div>
+
+
+        <p class="contact-details">
+          Ghent University (BE)<br>
+          Naturalis Biodiversity Center (NL)
+        </p>
+
+
+        <p
+          class="contact-details"
+          style="margin-top: 18px;"
+        >
+          Email: michael.nicolai [at] ugent.be
+        </p>
+
+
+        <!-- GET IN TOUCH -->
+
+        <div class="contact-message">
+
+          <h3>
+            Get in touch
+          </h3>
+
+          <p>
+            I welcome opportunities to collaborate on research
+            related to evolutionary biology, animal colouration,
+            phenotype evolution and natural history collections.
+          </p>
+
+          <p>
+            For research collaborations, student projects,
+            outreach opportunities or other enquiries, please
+            feel free to get in touch.
+          </p>
+
+        </div>
+
+      </div>
+
+
+    </section>
+
+
+  </main>
+
+
+</body>
+
+</html>

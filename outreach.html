@@ -1,0 +1,796 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Outreach | Michaël Nicolaï</title>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+
+    /* =========================================================
+       OUTREACH PAGE
+       ========================================================= */
+
+    .outreach-container {
+      max-width: 1050px;
+      padding-top: 1.5rem;
+      padding-bottom: 7rem;
+    }
+
+
+    /* =========================================================
+       OUTREACH BANNER
+       ========================================================= */
+
+    .page-banner {
+      overflow: visible;
+      margin-bottom: 25px;
+    }
+
+    .page-banner .banner-content {
+      position: absolute;
+      inset: auto 0 0 0;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 0;
+      text-align: center;
+      transform: translateY(50%);
+      pointer-events: none;
+    }
+
+    .page-banner .banner-title {
+      margin: 0;
+      min-width: 340px;
+      padding: 25px 50px;
+      background: #ffffff;
+      color: #3f4248;
+      font-size: 18px;
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      text-shadow: none;
+      box-shadow: none;
+      border: none;
+    }
+
+
+    /* =========================================================
+       CARD GRID
+       ========================================================= */
+
+    .outreach-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+
+    .outreach-grid + .outreach-grid {
+      margin-top: 1.25rem;
+    }
+
+
+    /* =========================================================
+       CARDS
+       ========================================================= */
+
+    .outreach-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      min-height: 240px;
+      padding: 1.6rem;
+
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      border-radius: 12px;
+
+      background: #fff;
+
+      color: inherit;
+      text-decoration: none;
+
+      overflow: hidden;
+
+      transition:
+        transform 0.22s ease,
+        box-shadow 0.22s ease,
+        border-color 0.22s ease;
+    }
+
+    /* Hover only for cards that are actual links */
+    a.outreach-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(0, 0, 0, 0.28);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.07);
+    }
+
+
+    /* =========================================================
+       CARD LABEL
+       ========================================================= */
+
+    .outreach-card-label {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 0.8rem;
+      align-items: start;
+
+      min-height: 2.2em;
+      margin-bottom: 1rem;
+
+      color: var(--site-blue);
+      font-size: 0.74rem;
+      line-height: 1.45;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      opacity: 0.62;
+    }
+
+    .outreach-card-label-main {
+      min-width: 0;
+    }
+
+    .outreach-card-year {
+      min-width: 3.2rem;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .outreach-card-year:empty::after {
+      content: "\00a0";
+    }
+
+
+    /* =========================================================
+       CARD TITLE
+       ========================================================= */
+
+    .outreach-card h3 {
+      min-height: 4.2em;
+      margin: 0 0 0.8rem;
+
+      font-size: 1.15rem;
+      line-height: 1.4;
+      font-weight: 400;
+    }
+
+
+    /* =========================================================
+       CARD TEXT
+       ========================================================= */
+
+    .outreach-card p {
+      min-height: 4.95em;
+      margin: 0;
+
+      font-size: 0.92rem;
+      line-height: 1.65;
+      opacity: 0.72;
+    }
+
+
+    /* =========================================================
+       CARD FOOTER
+       ========================================================= */
+
+    .outreach-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      margin-top: 1.8rem;
+
+      font-size: 0.84rem;
+      font-weight: 500;
+    }
+
+    .outreach-card-arrow {
+      opacity: 0.35;
+
+      transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    a.outreach-card:hover .outreach-card-arrow {
+      opacity: 1;
+      transform: translate(3px, -2px);
+    }
+
+
+    /* =========================================================
+       IMAGE CARDS
+       ========================================================= */
+
+    .outreach-card-image {
+      padding: 0;
+    }
+
+    .outreach-card-photo {
+      display: block;
+
+      width: 100%;
+      height: 180px;
+
+      object-fit: cover;
+      object-position: center;
+
+      transition: transform 0.35s ease;
+    }
+
+    .outreach-card-photo-empty {
+      background: #ffffff;
+    }
+
+    /* Only linked cards enlarge their image */
+    a.outreach-card-image:hover .outreach-card-photo {
+      transform: scale(1.035);
+    }
+
+    .outreach-card-body {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      justify-content: space-between;
+
+      padding: 1.6rem;
+    }
+
+
+    /* =========================================================
+       ACCESSIBILITY
+       ========================================================= */
+
+    a.outreach-card:focus-visible {
+      outline: 2px solid currentColor;
+      outline-offset: 4px;
+    }
+
+
+    /* =========================================================
+       TABLET
+       ========================================================= */
+
+    @media (max-width: 900px) {
+
+      .outreach-container {
+        padding-top: 2.5rem;
+      }
+
+      .outreach-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .outreach-card {
+        min-height: 0;
+      }
+
+      .outreach-card-photo {
+        height: 260px;
+      }
+
+      .outreach-card-label,
+      .outreach-card h3,
+      .outreach-card p {
+        min-height: 0;
+      }
+
+    }
+
+
+    /* =========================================================
+       MOBILE
+       ========================================================= */
+
+    @media (max-width: 600px) {
+
+      .page-banner {
+        margin-bottom: 20px;
+      }
+
+      .page-banner .banner-title {
+        min-width: 0;
+        width: calc(100% - 60px);
+        padding: 20px 25px;
+        font-size: 15px;
+        letter-spacing: 3.5px;
+      }
+
+      .outreach-container {
+        padding-top: 1.25rem;
+      }
+
+      .outreach-card {
+        padding: 1.35rem;
+      }
+
+      .outreach-card-image {
+        padding: 0;
+      }
+
+      .outreach-card-body {
+        padding: 1.35rem;
+      }
+
+      .outreach-card-photo {
+        height: 210px;
+      }
+
+    }
+
+
+    @media (max-width: 400px) {
+
+      .page-banner .banner-title {
+        width: calc(100% - 40px);
+        padding: 18px 20px;
+        font-size: 14px;
+        letter-spacing: 3px;
+      }
+
+    }
+
+
+    /* =========================================================
+       TYPOGRAPHY & BLUE ACCENT
+       ========================================================= */
+
+    :root {
+      --site-blue: #12324a;
+    }
+
+    .page-banner .banner-title {
+      color: var(--site-blue);
+      font-weight: 400;
+    }
+
+    .outreach-card h3 {
+      color: var(--site-blue);
+      font-weight: 400;
+    }
+
+    .outreach-card-label,
+    .outreach-card-footer {
+      color: var(--site-blue);
+    }
+
+  </style>
+
+  <link rel="stylesheet" href="theme.css">
+
+</head>
+
+
+<body>
+
+
+  <!-- =======================================================
+       HEADER
+       ======================================================= -->
+
+  <header class="site-header">
+
+    <div
+      class="header-space"
+      aria-hidden="true"
+    ></div>
+
+    <nav
+      class="nav"
+      aria-label="Main navigation"
+    >
+
+      <a href="index.html">
+        Home
+      </a>
+
+      <a href="research.html">
+        Research
+      </a>
+
+      <a
+        href="outreach.html"
+        class="active"
+      >
+        Outreach
+      </a>
+
+      <a href="publications.html">
+        Publications
+      </a>
+
+      <a href="contact.html">
+        Contact
+      </a>
+
+    </nav>
+
+  </header>
+
+
+
+  <!-- =======================================================
+       BANNER
+       ======================================================= -->
+
+  <section
+    class="page-banner"
+    aria-labelledby="page-title"
+  >
+
+    <img
+      src="Picture2.jpg"
+      alt="Science outreach and communication"
+    >
+
+    <div
+      class="banner-overlay"
+      aria-hidden="true"
+    ></div>
+
+    <div class="banner-content">
+
+      <h1
+        class="banner-title"
+        id="page-title"
+      >
+        Outreach
+      </h1>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =======================================================
+       MAIN CONTENT
+       ======================================================= -->
+
+  <main class="container outreach-container">
+
+
+    <!-- =====================================================
+         FIRST ROW
+         ===================================================== -->
+
+    <div class="outreach-grid">
+
+
+      <!-- ===================================================
+           BIOLOGY ON TAP
+           =================================================== -->
+
+      <article
+        class="outreach-card outreach-card-image"
+      >
+
+        <img
+          src="tap.png"
+          alt="How to colour a dinosaur at Biology on Tap in Leiden"
+          class="outreach-card-photo"
+        >
+
+
+        <div class="outreach-card-body">
+
+          <div>
+
+            <div class="outreach-card-label">
+
+              <span class="outreach-card-label-main">
+                Biology on Tap · Leiden (NL)
+              </span>
+
+              <span class="outreach-card-year">
+                2026
+              </span>
+
+            </div>
+
+
+            <h3>
+              How to colour a dinosaur
+            </h3>
+
+
+            <p>
+              Public science talk on how researchers reconstruct
+              the appearance and colouration of extinct animals.
+            </p>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+
+      <!-- ===================================================
+           NERDLAND
+           =================================================== -->
+
+      <a
+        class="outreach-card outreach-card-image"
+        href="https://www.nerdlandfestival.be/nl/programma-overzicht/hoe-kleur-ik-mijn-dinosaurus"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="How to colour a dinosaur at Nerdland Festival"
+      >
+
+        <img
+          src="nerd land.png"
+          alt="How to colour a dinosaur at Nerdland Festival"
+          class="outreach-card-photo"
+        >
+
+
+        <div class="outreach-card-body">
+
+          <div>
+
+            <div class="outreach-card-label">
+
+              <span class="outreach-card-label-main">
+                Nerdland · Wachtebeke (BE)
+              </span>
+
+              <span class="outreach-card-year">
+                2026
+              </span>
+
+            </div>
+
+
+            <h3>
+              How to colour a dinosaur
+            </h3>
+
+
+            <p>
+              Talk at Nerdland, one of the largest science festivals
+              in Belgium and the Netherlands.
+            </p>
+
+          </div>
+
+
+          <div class="outreach-card-footer">
+
+            <span>
+              Visit event
+            </span>
+
+            <span
+              class="outreach-card-arrow"
+              aria-hidden="true"
+            >
+              ↗
+            </span>
+
+          </div>
+
+        </div>
+
+      </a>
+
+
+
+      <!-- ===================================================
+           LIVESCIENCE
+           =================================================== -->
+
+      <article
+        class="outreach-card outreach-card-image"
+      >
+
+        <img
+          src="lifescience.jpg"
+          alt="LiveScience research spotlight at Naturalis"
+          class="outreach-card-photo"
+        >
+
+
+        <div class="outreach-card-body">
+
+          <div>
+
+            <div class="outreach-card-label">
+
+              <span class="outreach-card-label-main">
+                LiveScience · Naturalis (NL)
+              </span>
+
+              <span class="outreach-card-year">
+                2026
+              </span>
+
+            </div>
+
+
+            <h3>
+              LiveScience research spotlight
+            </h3>
+
+
+            <p>
+              A spotlight talk where I discuss my research
+              directly with visitors at Naturalis.
+            </p>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+    </div>
+
+
+
+    <!-- =====================================================
+         SECOND ROW
+         ===================================================== -->
+
+    <div class="outreach-grid">
+
+
+      <!-- ===================================================
+           EOS ARTICLE
+           =================================================== -->
+
+      <a
+        class="outreach-card outreach-card-image"
+        href="https://www.eoswetenschap.eu/natuur-milieu/gekleurde-verenpakken-hebben-meer-functies-dan-communicatie-en-camouflage"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="EOS Wetenschap article about bird colouration"
+      >
+
+        <img
+          src="eospipet.png"
+          alt="EOS Wetenschap article about bird colouration"
+          class="outreach-card-photo"
+        >
+
+
+        <div class="outreach-card-body">
+
+          <div>
+
+            <div class="outreach-card-label">
+
+              <span class="outreach-card-label-main">
+                EOS Wetenschap · Article
+              </span>
+
+              <span class="outreach-card-year">
+                2022
+              </span>
+
+            </div>
+
+
+            <h3>
+              Gekleurde verenpakken hebben meer functies dan communicatie en camouflage
+            </h3>
+
+
+            <p>
+              Article on the many biological functions of colour
+              in bird plumage.
+            </p>
+
+          </div>
+
+
+          <div class="outreach-card-footer">
+
+            <span>
+              Read article
+            </span>
+
+            <span
+              class="outreach-card-arrow"
+              aria-hidden="true"
+            >
+              ↗
+            </span>
+
+          </div>
+
+        </div>
+
+      </a>
+
+
+
+      <!-- ===================================================
+           EOS PODCAST
+           =================================================== -->
+
+    <a
+  class="outreach-card outreach-card-image"
+  href="https://www.eoswetenschap.eu/natuur-milieu/hoe-komen-vogels-aan-hun-prachtige-kleuren"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Listen to EOS Wetenschap podcast about bird colours"
+>
+
+  <img
+    src="eos.jpg"
+    alt="EOS Wetenschap podcast about bird colours"
+    class="outreach-card-photo"
+  >
+
+  <div class="outreach-card-body">
+
+    <div>
+
+      <div class="outreach-card-label">
+
+        <span class="outreach-card-label-main">
+          EOS Wetenschap · Podcast
+        </span>
+
+        <span class="outreach-card-year">
+          2026
+        </span>
+
+      </div>
+
+      <h3>
+        Hoe komen vogels aan hun prachtige kleuren?
+      </h3>
+
+      <p>
+        Podcast conversation about how birds produce
+        their extraordinary colours.
+      </p>
+
+    </div>
+
+    <div class="outreach-card-footer">
+
+      <span>
+        Listen to podcast
+      </span>
+
+      <span
+        class="outreach-card-arrow"
+        aria-hidden="true"
+      >
+        ↗
+      </span>
+
+    </div>
+
+  </div>
+
+</a>
+
+
+    </div>
+
+
+  </main>
+
+
+</body>
+
+</html>

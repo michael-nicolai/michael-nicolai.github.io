@@ -1,0 +1,2030 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Publications |  Michaël Nicolaï</title>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="style.css">
+
+<style>
+
+  /* =========================================================
+     PUBLICATIONS PAGE
+     ========================================================= */
+
+  .publications-container {
+    max-width: 1050px;
+    padding-top: 1.5rem;
+    padding-bottom: 7rem;
+  }
+
+
+  /* =========================================================
+     PUBLICATIONS BANNER
+     ========================================================= */
+
+  .page-banner {
+    overflow: visible;
+    margin-bottom: 25px;
+  }
+
+  .page-banner .banner-content {
+    position: absolute;
+    inset: auto 0 0 0;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+    padding: 0;
+    text-align: center;
+
+    transform: translateY(50%);
+    pointer-events: none;
+  }
+
+  .page-banner .banner-title {
+    margin: 0;
+
+    min-width: 340px;
+    padding: 25px 50px;
+
+    background: #ffffff;
+    color: #3f4248;
+
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.2;
+
+    letter-spacing: 4px;
+    text-transform: uppercase;
+
+    text-shadow: none;
+    box-shadow: none;
+    border: none;
+  }
+
+
+  /* =========================================================
+     GOOGLE SCHOLAR
+     ========================================================= */
+
+  .scholar-link {
+    margin: 0 0 2rem;
+
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .scholar-link a {
+    color: inherit;
+    font-weight: 500;
+    text-decoration: none;
+
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+
+    transition: opacity 0.2s ease;
+  }
+
+  .scholar-link a:hover {
+    opacity: 0.55;
+  }
+
+
+  /* =========================================================
+     PAPER COVERS
+     ========================================================= */
+
+  .paper-covers {
+    display: flex;
+    justify-content: center;
+
+    width: 100%;
+
+    margin: 1rem 0 5rem;
+  }
+
+  .paper-cover-grid {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 1.2rem;
+  }
+
+  .paper-cover-link {
+    display: block;
+
+    width: 135px;
+    height: 180px;
+
+    overflow: hidden;
+
+    color: inherit;
+    text-decoration: none;
+
+    background: #f4f4f4;
+
+    border: 1px solid rgba(0, 0, 0, 0.08);
+
+    transition:
+      transform 0.22s ease,
+      box-shadow 0.22s ease;
+  }
+
+  .paper-cover-link img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    transition:
+      transform 0.3s ease,
+      opacity 0.22s ease;
+  }
+
+  .paper-cover-link:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+      0 12px 25px rgba(0, 0, 0, 0.10);
+  }
+
+  .paper-cover-link:hover img {
+    transform: scale(1.025);
+    opacity: 0.92;
+  }
+
+  .paper-cover-link:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 5px;
+  }
+
+
+  /* =========================================================
+     YEAR GROUPS
+     ========================================================= */
+
+  .publication-year-group {
+    display: grid;
+
+    grid-template-columns:
+      110px
+      minmax(0, 1fr);
+
+    gap: 2.5rem;
+
+    margin-bottom: 4.5rem;
+  }
+
+  .publication-year {
+    position: sticky;
+    top: 110px;
+
+    align-self: start;
+
+    margin: 0;
+
+    font-size: 1.15rem;
+    line-height: 1;
+    font-weight: 500;
+
+    opacity: 0.5;
+  }
+
+  .publication-list {
+    min-width: 0;
+  }
+
+
+  /* =========================================================
+     PUBLICATION ROWS
+     ========================================================= */
+
+  .publication {
+    border-top: 1px solid rgba(0, 0, 0, 0.12);
+  }
+
+  .publication:last-child {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+  }
+
+  .publication-link {
+    display: grid;
+
+    grid-template-columns:
+      42px
+      minmax(0, 1fr)
+      24px;
+
+    gap: 1.1rem;
+
+    padding: 1.45rem 0;
+
+    color: inherit;
+    text-decoration: none;
+
+    transition:
+      padding-left 0.22s ease,
+      color 0.22s ease;
+  }
+
+  .publication-link:hover {
+    padding-left: 0.55rem;
+
+    color: rgba(0, 0, 0, 0.62);
+  }
+
+  .publication-number {
+    padding-top: 0.08rem;
+
+    font-size: 0.8rem;
+    font-weight: 500;
+
+    opacity: 0.4;
+  }
+
+  .publication-content {
+    min-width: 0;
+  }
+
+  .publication-citation {
+    margin: 0;
+
+    font-size: 0.96rem;
+    line-height: 1.7;
+  }
+
+  .publication-citation strong {
+    font-weight: 600;
+  }
+
+  .publication-citation em {
+    font-style: italic;
+  }
+
+  .publication-arrow {
+    padding-top: 0.12rem;
+
+    font-size: 1rem;
+
+    opacity: 0.25;
+
+    transition:
+      opacity 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  .publication-link:hover .publication-arrow {
+    opacity: 1;
+
+    transform: translate(4px, -3px);
+  }
+
+  .publication-link:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 5px;
+  }
+
+
+  /* =========================================================
+     NOTES / STATUS
+     ========================================================= */
+
+  .publication-note {
+    display: block;
+
+    margin-top: 0.45rem;
+
+    font-size: 0.79rem;
+    line-height: 1.45;
+
+    opacity: 0.55;
+  }
+
+  .publication-status {
+    display: inline-block;
+
+    margin-top: 0.55rem;
+    padding: 0.22rem 0.48rem;
+
+    border: 1px solid rgba(0, 0, 0, 0.18);
+    border-radius: 100px;
+
+    font-size: 0.72rem;
+    line-height: 1;
+    font-weight: 500;
+
+    opacity: 0.65;
+  }
+
+
+  /* =========================================================
+     OTHER ACADEMIC WORK
+     ========================================================= */
+
+  .other-work {
+    margin-top: 6rem;
+  }
+
+  .other-work-title {
+    margin: 0 0 1.7rem;
+
+    font-size: 1.55rem;
+    font-weight: 500;
+  }
+
+  .other-work .publication {
+    max-width: calc(100% - 152px);
+    margin-left: 152px;
+  }
+
+
+  /* =========================================================
+     RESPONSIVE — TABLET
+     ========================================================= */
+
+  @media (max-width: 850px) {
+
+    .publication-year-group {
+      display: block;
+
+      margin-bottom: 4rem;
+    }
+
+    .publication-year {
+      position: static;
+
+      margin-bottom: 1rem;
+
+      font-size: 1.4rem;
+
+      opacity: 0.65;
+    }
+
+    .other-work .publication {
+      max-width: none;
+      margin-left: 0;
+    }
+
+  }
+
+
+  /* =========================================================
+     RESPONSIVE — MOBILE
+     ========================================================= */
+
+  @media (max-width: 600px) {
+
+    /* Floating banner title */
+
+    .page-banner {
+      margin-bottom: 20px;
+    }
+
+    .page-banner .banner-title {
+      min-width: 0;
+      width: calc(100% - 60px);
+
+      padding: 20px 25px;
+
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 3.5px;
+
+      box-shadow: none;
+      border: none;
+    }
+
+
+    /* Publications content */
+
+    .publications-container {
+      padding-top: 1.25rem;
+      padding-bottom: 5rem;
+    }
+
+    .scholar-link {
+      margin: 0 0 2rem;
+    }
+
+    .paper-covers {
+      margin-bottom: 4rem;
+    }
+
+    .paper-cover-grid {
+      gap: 0.8rem;
+    }
+
+    .paper-cover-link {
+      width: 120px;
+      height: 160px;
+    }
+
+    .publication-link {
+      grid-template-columns:
+        30px
+        minmax(0, 1fr)
+        18px;
+
+      gap: 0.7rem;
+
+      padding: 1.2rem 0;
+    }
+
+    .publication-link:hover {
+      padding-left: 0;
+    }
+
+    .publication-citation {
+      font-size: 0.91rem;
+    }
+
+    .publication-number {
+      font-size: 0.73rem;
+    }
+
+    .publication-arrow {
+      font-size: 0.9rem;
+    }
+
+  }
+
+
+  /* =========================================================
+     VERY SMALL SCREENS
+     ========================================================= */
+
+  @media (max-width: 400px) {
+
+    .paper-cover-link {
+      width: 105px;
+      height: 140px;
+    }
+
+    .page-banner .banner-title {
+      width: calc(100% - 40px);
+
+      padding: 18px 20px;
+
+      font-size: 14px;
+      letter-spacing: 3px;
+    }
+
+  }
+
+
+  /* =========================================================
+     TYPOGRAPHY & BLUE ACCENT
+     Matches the light, elegant homepage typography
+     ========================================================= */
+
+  :root {
+    --site-blue: #12324a;
+  }
+
+  .page-banner .banner-title {
+    color: var(--site-blue);
+    font-weight: 400;
+  }
+
+  .scholar-link,
+  .publication-year,
+  .other-work-title {
+    color: var(--site-blue);
+  }
+
+  .publication-year,
+  .other-work-title {
+    font-weight: 300;
+    letter-spacing: 0.02em;
+  }
+
+  .scholar-link a {
+    color: var(--site-blue);
+  }
+
+  .publication-status {
+    color: var(--site-blue);
+    border-color: rgba(18, 50, 74, 0.28);
+  }
+
+</style>
+  <link rel="stylesheet" href="theme.css">
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     HEADER
+     ========================================================= -->
+
+<header class="site-header">
+  <div class="header-space" aria-hidden="true"></div>
+
+  <nav class="nav" aria-label="Main navigation">
+    <a href="index.html">Home</a>
+    <a href="research.html">Research</a>
+    <a href="outreach.html">Outreach</a>
+    <a href="publications.html" class="active">Publications</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+
+<!-- =========================================================
+     BANNER
+     ========================================================= -->
+
+<section class="page-banner" aria-labelledby="page-title">
+
+  <img
+    src="Picture2.jpg"
+    alt="Publications"
+  >
+
+  <div
+    class="banner-overlay"
+    aria-hidden="true"
+  ></div>
+
+  <div class="banner-content">
+
+    <h1
+      class="banner-title"
+      id="page-title"
+    >
+      Publications
+    </h1>
+
+  </div>
+
+</section><!-- =========================================================
+     MAIN CONTENT
+     ========================================================= -->
+
+<main class="container publications-container">
+
+
+  <!-- GOOGLE SCHOLAR -->
+
+  <p class="scholar-link">
+
+    Full publication list on
+
+    <a
+      href="https://scholar.google.com/citations?user=S26n0aAAAAAJ&hl=nl"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Google Scholar →
+    </a>
+
+  </p>
+
+
+  <!-- =====================================================
+       CLICKABLE PAPER COVERS
+       ===================================================== -->
+
+  <section
+    class="paper-covers"
+    aria-label="Selected publications"
+  >
+
+    <div class="paper-cover-grid">
+
+
+      <a
+        class="paper-cover-link"
+        href="#"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Open publication 1"
+      >
+        <img
+          src="Picture1.png"
+          alt="Publication cover 1"
+        >
+      </a>
+
+
+      <a
+        class="paper-cover-link"
+        href="#"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Open publication 2"
+      >
+        <img
+          src="Picture2.png"
+          alt="Publication cover 2"
+        >
+      </a>
+
+
+      <a
+        class="paper-cover-link"
+        href="#"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Open publication 3"
+      >
+        <img
+          src="Picture3.png"
+          alt="Publication cover 3"
+        >
+      </a>
+
+
+      <a
+        class="paper-cover-link"
+        href="#"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Open publication 4"
+      >
+        <img
+          src="Picture4.png"
+          alt="Publication cover 4"
+        >
+      </a>
+
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       2026
+       ===================================================== -->
+
+  <section class="publication-year-group">
+
+    <h2 class="publication-year">
+      2026
+    </h2>
+
+    <div class="publication-list">
+
+
+      <!-- 33 -->
+
+      <article class="publication">
+
+        <a
+          class="publication-link"
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+
+          <span class="publication-number">
+            33
+          </span>
+
+          <div class="publication-content">
+
+            <p class="publication-citation">
+              Debruyn, G., Evens, R., Lammers, J.,
+              De Clerck, K., Wybouw, N.,
+              <strong>Nicolaï, M.P.J.</strong> (2026).
+              Reduced water repellence as a potential cost
+              of quiet flight adaptations.
+              <em>Biology Letters</em>.
+            </p>
+
+            <span class="publication-status">
+              Minor revisions
+            </span>
+
+          </div>
+
+          <span
+            class="publication-arrow"
+            aria-hidden="true"
+          >
+            ↗
+          </span>
+
+        </a>
+
+      </article>
+
+
+      <!-- 31 -->
+
+      <article class="publication">
+
+        <a
+          class="publication-link"
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+
+          <span class="publication-number">
+            31
+          </span>
+
+          <div class="publication-content">
+
+            <p class="publication-citation">
+              Medina, I., Stuart-Fox, D., Liao, W.-Y.,
+              Ocampo, D., Debruyn, G., Salgado-Roa, F.C.,
+              Mulcahy, E., Taylor, C., Kearney, M.,
+              Stoddard, M.C., <strong>Nicolaï, M.P.J.</strong>,
+              Shawkey, M.D., D’Alba, L. (2026).
+              Decoupling of visible and NIR reflectance as a
+              thermal management strategy in avian eggs.
+              <em>Ecology Letters</em>.
+            </p>
+
+            <span class="publication-status">
+              Accepted
+            </span>
+
+          </div>
+
+          <span class="publication-arrow" aria-hidden="true">
+            ↗
+          </span>
+
+        </a>
+
+      </article>
+
+
+      <!-- 30 -->
+
+      <article class="publication">
+
+        <a
+          class="publication-link"
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+
+          <span class="publication-number">
+            30
+          </span>
+
+          <div class="publication-content">
+
+            <p class="publication-citation">
+              Barbosa, S., Bittner, C., Arbore, R.,
+              Araújo, P., Pereira, P., Andrade, P.,
+              Fekete, C., Afonso, R., Afonso, S.,
+              Amorim, M.F., Marques, C.I.,
+              <strong>Nicolaï, M.P.J.</strong>, Carita, J.,
+              Brejcha, J., Lopes, R.J., Alves, J.M.,
+              Cruz, F., Gómez-Garrido, J., Zamarreño, C.,
+              Gut, M., Alioto, T., Ali, M.A., Hilpert, A.,
+              Hecht, A., Spiecker, E., Zubiri, B.A.,
+              Ito, S., Wakamatsu, K., Andersson, L.,
+              Corbo, J.C., Vogel, N., Carneiro, M. (2026).
+              Modulation of avian iridescence via melanogenesis.
+              <em>Proceedings of the National Academy of Sciences</em>.
+            </p>
+
+            <span class="publication-status">
+              Accepted
+            </span>
+
+          </div>
+
+          <span class="publication-arrow" aria-hidden="true">
+            ↗
+          </span>
+
+        </a>
+
+      </article>
+
+
+      <!-- 29 -->
+
+      <article class="publication">
+
+        <a
+          class="publication-link"
+          href="https://academic.oup.com/icb/article-abstract/doi/10.1093/icb/icag135/8741822"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+
+          <span class="publication-number">
+            29
+          </span>
+
+          <div class="publication-content">
+
+            <p class="publication-citation">
+              Debruyn, G., Dobson, J.L., D’Alba, L.,
+              Wybouw, N.,
+              <strong>Nicolaï, M.P.J.*</strong>,
+              Shawkey, M. (2026).
+              Disrupted melanization reveals a hidden role
+              of microstructures in green plumage coloration.
+              <em>Integrative and Comparative Biology</em>,
+              icag135.
+            </p>
+
+            <span class="publication-note">
+              * Corresponding author
+            </span>
+
+          </div>
+
+          <span class="publication-arrow" aria-hidden="true">
+            ↗
+          </span>
+
+        </a>
+
+      </article>
+
+
+      <!-- 28 -->
+
+      <article class="publication">
+
+        <a
+          class="publication-link"
+          href="https://onlinelibrary.wiley.com/doi/full/10.1002/ece3.73381"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+
+          <span class="publication-number">
+            28
+          </span>
+
+          <div class="publication-content">
+
+            <p class="publication-citation">
+              Goldenberg, J., Dobson, J., Debruyn, G.,
+              <strong>Nicolaï, M.P.J.</strong>,
+              Rogala, S., Vanthournout, B.,
+              Massetti, F., Clusella-Trullas, S.,
+              Strubbe, D., De Wolf, K., Bonte, D.,
+              Star, B., Shawkey, M.D., D’Alba, L. (2026).
+              Color and near-infrared reflectance covary
+              in distinct ways across taxa.
+              <em>Ecology and Evolution</em>,
+              16(4), e73381.
+            </p>
+
+          </div>
+
+          <span class="publication-arrow" aria-hidden="true">
+            ↗
+          </span>
+
+        </a>
+
+      </article>
+
+
+      <!-- 27 -->
+
+      <article class="publication">
+
+        <a
+          class="publication-link"
+          href="https://royalsocietypublishing.org/rsbl/article/22/3/2025.0721/480922/A-unique-hollow-melanosome-morphology-in-the-hairs"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+
+          <span class="publication-number">
+            27
+          </span>
+
+          <div class="publication-content">
+
+            <p class="publication-citation">
+              Dobson, J.L., Babarović, F., Xie, W.,
+              <strong>Nicolaï, M.P.J.</strong>,
+              Debruyn, G., De Clerck, K.,
+              Shawkey, M., D’Alba, L.A. (2026).
+              A unique hollow melanosome morphology
+              in the hairs of the platypus
+              <em>Ornithorhynchus anatinus</em>.
+              <em>Biology Letters</em>,
+              22(3), 20250721.
+            </p>
+
+          </div>
+
+          <span class="publication-arrow" aria-hidden="true">
+            ↗
+          </span>
+
+        </a>
+
+      </article>
+
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       2025
+       ===================================================== -->
+
+  <section class="publication-year-group">
+
+    <h2 class="publication-year">
+      2025
+    </h2>
+
+    <div class="publication-list">
+
+
+      <!-- 26 -->
+
+      <article class="publication">
+
+        <a class="publication-link" href="https://royalsocietypublishing.org/rsif/article/22/230/20250508/235562/Multilayer-thin-film-produces-recurrent-evolution" target="_blank" rel="noopener noreferrer">
+
+          <span class="publication-number">
+            26
+          </span>
+
+          <div class="publication-content">
+
+            <p class="publication-citation">
+              Dobson, J.L., Babarović, F.,
+              <strong>Nicolaï, M.P.J.</strong>,
+              Debruyn, G., Shawkey, M.D.,
+              D’Alba, L. (2025).
+              Multilayer thin-film produces recurrent
+              evolution of iridescence in mammals.
+              <em>Journal of the Royal Society Interface</em>,
+              22, 20250508.
+            </p>
+
+          </div>
+
+          <span class="publication-arrow" aria-hidden="true">
+            ↗
+          </span>
+
+        </a>
+
+      </article>
+
+
+      <!-- 25 -->
+
+      <article class="publication">
+
+        <a class="publication-link" href="https://www.nature.com/articles/s41598-025-85587-x" target="_blank" rel="noopener noreferrer">
+
+          <span class="publication-number">
+            25
+          </span>
+
+          <div class="publication-content">
+
+            <p class="publication-citation">
+              Yousefi, M.,
+              <strong>Nicolaï, M.P.J.</strong>,
+              Bosso, L., Kafash, A., Nezami, B.,
+              Rastegar-Pouyani, E. (2025).
+              Global scale high-resolution habitat suitability
+              modeling of avifauna providing pollination service
+              (sunbirds, Nectariniidae).
+              <em>Scientific Reports</em>,
+              15, 9489.
+            </p>
+
+          </div>
+
+          <span class="publication-arrow" aria-hidden="true">
+            ↗
+          </span>
+
+        </a>
+
+      </article>
+
+
+      <!-- 24 -->
+
+      <article class="publication">
+
+        <a class="publication-link" href="https://www.nature.com/articles/s41467-025-57547-6" target="_blank" rel="noopener noreferrer">
+
+          <span class="publication-number">
+            24
+          </span>
+
+          <div class="publication-content">
+
+            <p class="publication-citation">
+              Goldenberg, J., Bisschop, K., Lamber, J.,
+              <strong>Nicolaï, M.P.J.</strong>,
+              Etienne, R., D’Alba, L., Shawkey, M. (2025).
+              Habitat openness and squamate color evolution over deep time
+              <em>Nature Communications</em>,
+              15, 2625.
+            </p>
+
+          </div>
+
+          <span class="publication-arrow" aria-hidden="true">
+            ↗
+          </span>
+
+        </a>
+
+      </article>
+
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       2024
+       ===================================================== -->
+
+  <section class="publication-year-group">
+
+    <h2 class="publication-year">
+      2024
+    </h2>
+
+    <div class="publication-list">
+
+
+      <article class="publication">
+
+        <a class="publication-link" href="#" target="_blank" rel="noopener noreferrer">
+
+          <span class="publication-number">
+            23
+          </span>
+
+          <div class="publication-content">
+
+            <p class="publication-citation">
+              Kosch, T.A. et al.* (2024).
+              The Amphibian Genomics Consortium:
+              advancing genomic and genetic resources
+              for amphibian research and conservation.
+              <em>BMC Genomics</em>,
+              256(1025).
+            </p>
+
+            <span class="publication-note">
+              * As part of the Amphibian Genomics Consortium
+            </span>
+
+          </div>
+
+          <span class="publication-arrow" aria-hidden="true">
+            ↗
+          </span>
+
+        </a>
+
+      </article>
+
+
+      <article class="publication">
+
+        <a class="publication-link" href="https://resjournals.onlinelibrary.wiley.com/doi/full/10.1111/phen.12469" target="_blank" rel="noopener noreferrer">
+
+          <span class="publication-number">
+            22
+          </span>
+
+          <div class="publication-content">
+
+            <p class="publication-citation">
+              Debruyn, G., Büscher, T.,
+              <strong>Nicolaï, M.P.J.</strong>,
+              Dobson, J.L., Xie, W.,
+              De Clerck, K., D’Alba, L.,
+              Shawkey, M.D. (2024).
+              Thin-film iridescence in the eggshell
+              of a stick insect
+              (<em>Myronides glaucus</em>).
+              <em>Physiological Entomology</em>,
+              1–8.
+            </p>
+
+          </div>
+
+          <span class="publication-arrow" aria-hidden="true">
+            ↗
+          </span>
+
+        </a>
+
+      </article>
+
+
+      <article class="publication">
+
+        <a class="publication-link" href="https://www.science.org/doi/abs/10.1126/science.adp7710?referrer=https%3A%2F%2Fscholar.google.com%2Fcitations%3Fview_op%3Dview_citation%26hl%3Dnl%26user%3DS26n0aAAAAAJ%26sortby%3Dpubdate%26citation_for_view%3DS26n0aAAAAAJ%3A3fE2CSJIrl8C" target="_blank" rel="noopener noreferrer">
+
+          <span class="publication-number">
+            21
+          </span>
+
+          <div class="publication-content">
+
+            <p class="publication-citation">
+              Arbore, R., (4 other authors),
+              <strong>Nicolaï, M.P.J.</strong>,
+              … (15 other authors), Carneiro, M. (2024).
+              A molecular mechanism for bright color variation in parrots
+              <em>Science</em>,
+              386(6721), eadp7710.
+            </p>
+
+          </div>
+
+          <span class="publication-arrow" aria-hidden="true">
+            ↗
+          </span>
+
+        </a>
+
+      </article>
+
+
+      <article class="publication">
+
+        <a class="publication-link" href="https://academic.oup.com/icb/article/64/1/107/7675500" target="_blank" rel="noopener noreferrer">
+
+          <span class="publication-number">
+            20
+          </span>
+
+          <div class="publication-content">
+
+            <p class="publication-citation">
+              Debruyn, G., Geltmeyer, J.,
+              Schoolaert, E.,
+              <strong>Nicolaï, M.P.J.</strong>,
+              Xie, W., Wynant, M.,
+              Shawkey, M.D., De Clerck, K.,
+              D’Alba, L. (2024).
+              Hydric environment and chemical composition
+              shape non-avian reptile eggshell absorption.
+              <em>Integrative and Comparative Biology</em>,
+              64(1), 107–119.
+            </p>
+
+          </div>
+
+          <span class="publication-arrow" aria-hidden="true">
+            ↗
+          </span>
+
+        </a>
+
+      </article>
+
+
+      <article class="publication">
+
+        <a class="publication-link" href="https://onlinelibrary.wiley.com/doi/full/10.1002/ece3.11427" target="_blank" rel="noopener noreferrer">
+
+          <span class="publication-number">
+            19
+          </span>
+
+          <div class="publication-content">
+
+            <p class="publication-citation">
+              <strong>Nicolaï, M.P.J.</strong>,
+              Rogalla, S., Yousefi, M.,
+              Bowie, R.C.K., D’Alba, L.,
+              Shawkey, M.D. (2024).
+              Ecological, genetic and geographical divergence
+              explain differences in colouration among
+              sunbird species (Nectariniidae).
+              <em>Ecology and Evolution</em>,
+              14(9), e11427.
+            </p>
+
+          </div>
+
+          <span class="publication-arrow" aria-hidden="true">
+            ↗
+          </span>
+
+        </a>
+
+      </article>
+
+
+      <article class="publication">
+
+        <a class="publication-link" href="https://www.nature.com/articles/s41559-024-02487-5" target="_blank" rel="noopener noreferrer">
+
+          <span class="publication-number">
+            18
+          </span>
+
+          <div class="publication-content">
+
+            <p class="publication-citation">
+              Eliason, C.,
+              <strong>Nicolaï, M.P.J.</strong>,
+              Bom, C.#, Blom, E.,
+              D’Alba, L., Shawkey, M.D. (2024).
+              Transitions between colour mechanisms affect
+              speciation dynamics and range distributions of birds.
+              <em>Nature Ecology &amp; Evolution</em>,
+              8, 1723–1734.
+            </p>
+
+            <span class="publication-note">
+              # Supervised master student
+            </span>
+
+          </div>
+
+          <span class="publication-arrow" aria-hidden="true">
+            ↗
+          </span>
+
+        </a>
+
+      </article>
+
+
+      <article class="publication">
+
+        <a class="publication-link" href="https://www.pnas.org/doi/abs/10.1073/pnas.2318189121" target="_blank" rel="noopener noreferrer">
+
+          <span class="publication-number">
+            17
+          </span>
+
+          <div class="publication-content">
+
+            <p class="publication-citation">
+              <strong>Nicolaï, M.P.J.</strong>,
+              Bok, M.J., Alvarez, J.A.,
+              D’Alba, L., Shawkey, M.D. (2024).
+              The function and consequences
+              of fluorescence in tetrapods.
+              <em>PNAS</em>,
+              121(24), e2318189121.
+            </p>
+
+          </div>
+
+          <span class="publication-arrow" aria-hidden="true">
+            ↗
+          </span>
+
+        </a>
+
+      </article>
+
+
+      <article class="publication">
+
+        <a class="publication-link" href="https://academic.oup.com/pnasnexus/article/3/4/pgae138/7639422" target="_blank" rel="noopener noreferrer">
+
+          <span class="publication-number">
+            16
+          </span>
+
+          <div class="publication-content">
+
+            <p class="publication-citation">
+              <strong>Nicolaï, M.P.J.</strong>*,
+              Debruyn, G.*, Soenens, M.,
+              Shawkey, M.D., D’Alba, L. (2024).
+              Nanoscale millefeuilles produce iridescent
+              bill ornaments in birds.
+              <em>PNAS Nexus</em>,
+              3(4), 138.
+            </p>
+
+            <span class="publication-note">
+              * Shared first author
+            </span>
+
+          </div>
+
+          <span class="publication-arrow" aria-hidden="true">
+            ↗
+          </span>
+
+        </a>
+
+      </article>
+
+
+      <article class="publication">
+
+        <a class="publication-link" href="https://academic.oup.com/sysbio/article/73/2/343/7593426" target="_blank" rel="noopener noreferrer">
+
+          <span class="publication-number">
+            15
+          </span>
+
+          <div class="publication-content">
+
+            <p class="publication-citation">
+              <strong>Nicolaï, M.P.J.</strong>,
+              Van Hecke, B.#, Rogalla, S.,
+              Debruyn, G., Bowie, R.,
+              Matzke, N.J., Hackett, S.,
+              D’Alba, L., Shawkey, M. (2024).
+              The evolution of multiple colour mechanisms
+              is correlated with diversification in sunbirds
+              (Nectariniidae).
+              <em>Systematic Biology</em>,
+              syae006.
+            </p>
+
+            <span class="publication-note">
+              # Supervised master student
+            </span>
+
+          </div>
+
+          <span class="publication-arrow" aria-hidden="true">
+            ↗
+          </span>
+
+        </a>
+
+      </article>
+
+
+      <article class="publication">
+
+        <a class="publication-link" href="https://nsojournals.onlinelibrary.wiley.com/doi/full/10.1111/jav.03228" target="_blank" rel="noopener noreferrer">
+
+          <span class="publication-number">
+            14
+          </span>
+
+          <div class="publication-content">
+
+            <p class="publication-citation">
+              Ottenburghs, J. &amp;
+              <strong>Nicolaï, M.P.J.</strong> (2024).
+              Hybridization constrains the evolution
+              of mimicry complexes in woodpeckers.
+              <em>Journal of Avian Biology</em>,
+              1, e032228.
+            </p>
+
+          </div>
+
+          <span class="publication-arrow" aria-hidden="true">
+            ↗
+          </span>
+
+        </a>
+
+      </article>
+
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       2023
+       ===================================================== -->
+
+  <section class="publication-year-group">
+
+    <h2 class="publication-year">
+      2023
+    </h2>
+
+    <div class="publication-list">
+
+
+      <article class="publication">
+
+        <a class="publication-link" href="https://royalsocietypublishing.org/rsbl/article/19/12/20230304/63232/Back-in-black-melanin-rich-skin-colour-associated" target="_blank" rel="noopener noreferrer">
+
+          <span class="publication-number">
+            13
+          </span>
+
+          <div class="publication-content">
+
+            <p class="publication-citation">
+              <strong>Nicolaï, M.P.J.</strong>,
+              Vanisterbecq, R.#,
+              Shawkey, M.D., D'Alba, L. (2023).
+              Back in black: melanin-rich skin colour
+              associated with increased net diversification
+              rates in birds.
+              <em>Biology Letters</em>,
+              19, 20230304.
+            </p>
+
+            <span class="publication-note">
+              # Supervised bachelor student
+            </span>
+
+          </div>
+
+          <span class="publication-arrow" aria-hidden="true">
+            ↗
+          </span>
+
+        </a>
+
+      </article>
+
+
+      <article class="publication">
+
+        <a class="publication-link" href="https://www.nature.com/articles/s41559-023-02150-5" target="_blank" rel="noopener noreferrer">
+
+          <span class="publication-number">
+            12
+          </span>
+
+          <div class="publication-content">
+
+            <p class="publication-citation">
+              Weil, S.-S., Gallien, L.,
+              <strong>Nicolaï, M.P.J.</strong>,
+              Lavergne, S., Börger, L.,
+              Allen, W. (2023).
+              Body size and life history shape the historical biogeography of tetrapods
+              <em>Nature Ecology &amp; Evolution</em>,
+              7, 1467–1479.
+            </p>
+
+          </div>
+
+          <span class="publication-arrow" aria-hidden="true">
+            ↗
+          </span>
+
+        </a>
+
+      </article>
+
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       2022
+       ===================================================== -->
+
+  <section class="publication-year-group">
+
+    <h2 class="publication-year">
+      2022
+    </h2>
+
+    <div class="publication-list">
+
+
+      <article class="publication">
+
+        <a class="publication-link" href="https://onlinelibrary.wiley.com/doi/full/10.1111/ddi.13616" target="_blank" rel="noopener noreferrer">
+
+          <span class="publication-number">
+            11
+          </span>
+
+          <div class="publication-content">
+
+            <p class="publication-citation">
+              Yousefi, M., Kafash, A.,
+              <strong>Nicolaï, M.P.J.</strong> (2022).
+              Reptile richness and genetic divergence patterns were shaped by current and past climate in and around the Irano-Anatolian global biodiversity hotspot: Implications for conservation,
+              <em>Diversity and Distributions</em>,
+              28(12), 2637–2647.
+            </p>
+
+          </div>
+
+          <span class="publication-arrow" aria-hidden="true">
+            ↗
+          </span>
+
+        </a>
+
+      </article>
+
+
+      <article class="publication">
+
+        <a class="publication-link" href="https://nsojournals.onlinelibrary.wiley.com/doi/full/10.1111/ecog.06323" target="_blank" rel="noopener noreferrer">
+
+          <span class="publication-number">
+            10
+          </span>
+
+          <div class="publication-content">
+
+            <p class="publication-citation">
+              Weil, S.-S., Gallien, L.,
+              Lavergne, S., Börger, L.,
+              Hassler, G.,
+              <strong>Nicolaï, M.P.J.</strong>,
+              Allen, W. (2022).
+              Chameleon biogeographic dispersal is associated with extreme life history strategies,
+              <em>Ecography</em>,
+              e06323.
+            </p>
+
+          </div>
+
+          <span class="publication-arrow" aria-hidden="true">
+            ↗
+          </span>
+
+        </a>
+
+      </article>
+
+
+      <article class="publication">
+
+        <a class="publication-link" href="https://bioone.org/journals/journal-of-vertebrate-biology/volume-71/issue-22053/jvb.22053/Supplementary-morphological-information-for-Cornufer-manus-Kraus--Allison-2009/10.25225/jvb.22053.full" target="_blank" rel="noopener noreferrer">
+
+          <span class="publication-number">
+            9
+          </span>
+
+          <div class="publication-content">
+
+            <p class="publication-citation">
+              <strong>Nicolaï, M.P.J.</strong>,
+              Porchetta, S., Clegg, J.R.,
+              Taylor, P.N., Jocque, M.M.T. (2022).
+              Supplementary morphological information for
+              <em>Cornufer manus</em>
+              (Kraus &amp; Allison, 2009)
+              and <em>Cornufer vogti</em>
+              (Hediger, 1934),
+              with information on colour in life.
+              <em>Journal of Vertebrate Biology</em>,
+              71(22053), 1–9.
+            </p>
+
+          </div>
+
+          <span class="publication-arrow" aria-hidden="true">
+            ↗
+          </span>
+
+        </a>
+
+      </article>
+
+
+      <article class="publication">
+
+        <a class="publication-link" href="https://www.nature.com/articles/s41586-022-04622-3" target="_blank" rel="noopener noreferrer">
+
+          <span class="publication-number">
+            8
+          </span>
+
+          <div class="publication-content">
+
+            <p class="publication-citation">
+              Cincotta, A.,
+              <strong>Nicolaï, M.P.J.</strong>,
+              D’Alba, L., Shawkey, M.D.,
+              McNamara, M.M., Carleer, R.,
+              Yans, J., Lescuillé, F.,
+              Godefroit, P. (2022).
+              Melanosomes in simple and branched
+              pterosaur feathers support signalling
+              functions for early feathers.
+              <em>Nature</em>,
+              604, 684–688.
+            </p>
+
+            <span class="publication-note">
+              <em>Featured in Science</em>
+            </span>
+
+          </div>
+
+          <span class="publication-arrow" aria-hidden="true">
+            ↗
+          </span>
+
+        </a>
+
+      </article>
+
+
+      <article class="publication">
+
+        <a class="publication-link" href="https://link.springer.com/article/10.1007/s10336-022-01964-7" target="_blank" rel="noopener noreferrer">
+
+          <span class="publication-number">
+            7
+          </span>
+
+          <div class="publication-content">
+
+            <p class="publication-citation">
+              Rogalla, S.,
+              <strong>Nicolaï, M.P.J.</strong>,
+              Vandomme, V., Teifel, R.,
+              Clusella-Trullas, S.,
+              D’Alba, L., Shawkey, M.D. (2022).
+              First observation of a brood patch
+              on a male sunbird
+              (<em>Chalcomitra amethystina</em>).
+              <em>Journal of Ornithology</em>,
+              163, 611–614.
+            </p>
+
+          </div>
+
+          <span class="publication-arrow" aria-hidden="true">
+            ↗
+          </span>
+
+        </a>
+
+      </article>
+
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       2021
+       ===================================================== -->
+
+  <section class="publication-year-group">
+
+    <h2 class="publication-year">
+      2021
+    </h2>
+
+    <div class="publication-list">
+
+
+      <article class="publication">
+
+        <a class="publication-link" href="https://royalsocietypublishing.org/rsif/article/18/180/20210236/89953/The-evolution-of-darker-wings-in-seabirds-in" target="_blank" rel="noopener noreferrer">
+
+          <span class="publication-number">
+            6
+          </span>
+
+          <div class="publication-content">
+
+            <p class="publication-citation">
+              Rogalla, S.*,
+              <strong>Nicolaï, M.P.J.*</strong>,
+              Porchetta, S.*, Glabeke, G.,
+              Battistella, C., D’Alba, L.,
+              Gianneschi, N., van Beeck, J.,
+              Shawkey, M.D. (2021).
+              Temperature dependent flight efficiency
+              drives the evolution of darker wings in seabirds.
+              <em>Journal of the Royal Society Interface</em>,
+              18, 20210236.
+            </p>
+
+            <span class="publication-note">
+              * Equal contribution.
+              <em>Featured in Science</em>.
+            </span>
+
+          </div>
+
+          <span class="publication-arrow" aria-hidden="true">
+            ↗
+          </span>
+
+        </a>
+
+      </article>
+
+
+      <article class="publication">
+
+        <a class="publication-link" href="https://onlinelibrary.wiley.com/doi/full/10.1111/mec.15901" target="_blank" rel="noopener noreferrer">
+
+          <span class="publication-number">
+            5
+          </span>
+
+          <div class="publication-content">
+
+            <p class="publication-citation">
+              <strong>Nicolaï, M.P.J.</strong>,
+              D’Alba, L., Goldenberg, J.,
+              Gansemans, Y., Van Nieuwerburgh, F.,
+              Clusella-Trullas, C.,
+              Shawkey, M.D. (2021).
+              Untangling the structural and molecular mechanisms
+              underlying colour and rapid colour change in a lizard,
+              <em>Agama atra</em>.
+              <em>Molecular Ecology</em>,
+              30(10), 2262–2284.
+            </p>
+
+          </div>
+
+          <span class="publication-arrow" aria-hidden="true">
+            ↗
+          </span>
+
+        </a>
+
+      </article>
+
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       2020
+       ===================================================== -->
+
+  <section class="publication-year-group">
+
+    <h2 class="publication-year">
+      2020
+    </h2>
+
+    <div class="publication-list">
+
+      <article class="publication">
+
+        <a class="publication-link" href="https://www.nature.com/articles/s41467-020-15894-6" target="_blank" rel="noopener noreferrer">
+
+          <span class="publication-number">
+            4
+          </span>
+
+          <div class="publication-content">
+
+            <p class="publication-citation">
+              <strong>Nicolaï, M.P.J.</strong>,
+              Shawkey, M.D., Porchetta, S.,
+              Claus, R., D’Alba, L. (2020).
+              Exposure to UV radiance predicts repeated evolution
+              of concealed black skin in birds.
+              <em>Nature Communications</em>,
+              11, 2414.
+            </p>
+
+          </div>
+
+          <span class="publication-arrow" aria-hidden="true">
+            ↗
+          </span>
+
+        </a>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       2019
+       ===================================================== -->
+
+  <section class="publication-year-group">
+
+    <h2 class="publication-year">
+      2019
+    </h2>
+
+    <div class="publication-list">
+
+      <article class="publication">
+
+        <a class="publication-link" href="https://onlinelibrary.wiley.com/doi/full/10.1111/geb.12929" target="_blank" rel="noopener noreferrer">
+
+          <span class="publication-number">
+            3
+          </span>
+
+          <div class="publication-content">
+
+            <p class="publication-citation">
+              <strong>Nicolaï, M.P.J.</strong>
+              and Matzke, N.J. (2019).
+              Trait-based range expansion aided in the
+              global radiation of Crocodylidae.
+              <em>Global Ecology &amp; Biogeography</em>,
+              28, 1244–1258.
+            </p>
+
+          </div>
+
+          <span class="publication-arrow" aria-hidden="true">
+            ↗
+          </span>
+
+        </a>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       2018
+       ===================================================== -->
+
+  <section class="publication-year-group">
+
+    <h2 class="publication-year">
+      2018
+    </h2>
+
+    <div class="publication-list">
+
+      <article class="publication">
+
+        <a class="publication-link" href="https://zookeys.pensoft.net/articles.php?id=24742" target="_blank" rel="noopener noreferrer">
+
+          <span class="publication-number">
+            2
+          </span>
+
+          <div class="publication-content">
+
+            <p class="publication-citation">
+              Kok, P.J.R.,
+              <strong>Nicolaï, M.P.J.</strong>,
+              Lathrop, A., MacCulloch, R.D. (2018).
+              <em>Anomaloglossus meansi</em> sp. nov.,
+              a new Pantepui species of the
+              <em>Anomaloglossus beebei</em> group
+              (Anura, Aromobatidae).
+              <em>ZooKeys</em>,
+              759, 99–116.
+            </p>
+
+          </div>
+
+          <span class="publication-arrow" aria-hidden="true">
+            ↗
+          </span>
+
+        </a>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       2017
+       ===================================================== -->
+
+  <section class="publication-year-group">
+
+    <h2 class="publication-year">
+      2017
+    </h2>
+
+    <div class="publication-list">
+
+      <article class="publication">
+
+        <a class="publication-link" href="https://www.amphibian-reptile-conservation.org/pdfs/Volume/Vol_11_no_1/ARC_11_1_[General_Section]_45-50_e136_high_res.pdf" target="_blank" rel="noopener noreferrer">
+
+          <span class="publication-number">
+            1
+          </span>
+
+          <div class="publication-content">
+
+            <p class="publication-citation">
+              <strong>Nicolaï, M.P.J.</strong>,
+              Porchetta, S., Balakrishna, S.,
+              Botha, D.P. &amp; Kok, P.J.R. (2017).
+              Preliminary observations on the circadian
+              variation in site fidelity in
+              <em>Atelopus hoogmoedi</em>
+              (Lescure, 1974) (Anura, Bufonidae).
+              <em>Amphibian and Reptile Conservation</em>,
+              11(1), 45–50.
+            </p>
+
+          </div>
+
+          <span class="publication-arrow" aria-hidden="true">
+            ↗
+          </span>
+
+        </a>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       OTHER ACADEMIC WORK
+       ===================================================== -->
+
+  <section class="other-work">
+
+    <h2 class="other-work-title">
+      Other academic work
+    </h2>
+
+    <article class="publication">
+
+      <a
+        class="publication-link"
+        href="https://www.nature.com/articles/d41586-022-04473-y"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
+        <span class="publication-number">
+          1
+        </span>
+
+        <div class="publication-content">
+
+          <p class="publication-citation">
+            <strong>Nicolaï, M.P.J.</strong> (2022).
+            Boost funds to make museum specimens
+            available to all.
+            <em>Nature</em>,
+            612(7941), 631.
+          </p>
+
+          <span class="publication-note">
+            Non-peer-reviewed
+          </span>
+
+        </div>
+
+        <span class="publication-arrow" aria-hidden="true">
+          ↗
+        </span>
+
+      </a>
+
+    </article>
+
+  </section>
+
+
+</main>
+
+</body>
+</html>
