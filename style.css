@@ -691,9 +691,9 @@ h2 {
   }
 
   .hero {
-    min-height: calc(100vh - 105px);
-    background-position: center;
-  }
+  min-height: calc(100vh - 105px);
+  background-position: center, center, left 83%;
+}
 
   .hero .content {
     transform: translateY(-20px);
